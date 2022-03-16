@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "happy-candy",
+    "slug": "snack-68f4c074-1f67-47df-93d1-47b1b18cdbed",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.cesaroncala.snack68f4c0741f6747df93d147b1b18cdbed"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
