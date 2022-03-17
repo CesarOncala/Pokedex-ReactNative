@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import PokeCard from './PokeCard/PokeCard.jsx'
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, View, } from 'react-native'
 import { Autocomplete } from './Autocomplete'
 import { getPokemon } from '../services/PokemonDataService.jsx'
+
 
 export const Pokedex = () => {
 
 
   const [pokemon, setPokemon] = React.useState(undefined);
   const [textinput, settextinput] = useState('')
+
 
   async function updatePokemon(q) {
     setPokemon((await getPokemon(q)))
@@ -20,7 +22,7 @@ export const Pokedex = () => {
   React.useEffect(() => {
 
     if (textinput.length >= 3)
-    updatePokemon(textinput.toLowerCase())
+      updatePokemon(textinput.toLowerCase())
   }, [textinput])
 
 

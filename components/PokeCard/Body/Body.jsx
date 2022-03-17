@@ -1,15 +1,30 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Capitalize} from '../../../Functions.jsx';
-import {styles} from './style.jsx'
+import { Capitalize } from '../../../Functions.jsx';
+import { styles } from './style.jsx'
+import translate from 'translate-google-api'
 
 const Body = (props) => {
+
+
+      const [description, setdescription] = React.useState('');
+
+
+      async function getTranslate(text, lang) {
+            return await translate(text, { to: lang }).then(o => o)
+      }
+
+      React.useEffect(async () => {
+           setdescription(await getTranslate(props.pokemon?.general?.description,'en') +
+            '\n\n' + await getTranslate(props.pokemon?.general?.description,'pt'))
+      }, [props])
+
 
       return (<View style={styles.info_group}>
 
             <View style={styles.elementGroup}>
                   <Text style={[styles.value, { textAlign: 'justify' }]}>
-                        {props.pokemon?.general?.description}
+                        {description}
                   </Text>
             </View>
 
