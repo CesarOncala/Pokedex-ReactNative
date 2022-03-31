@@ -1,11 +1,15 @@
-# Sample Snack app
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+## Descrição
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+### Pokedex desenvolvida em React Native, utilizando ReactNativePaper, PokeApi e componente ngx-googletranslate.
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
+## Screenshots
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+<img src="https://user-images.githubusercontent.com/52250904/161066902-e64e0af1-2568-4b32-a07c-7a1446bc2bed.png" width="500">
+
+<img src="https://user-images.githubusercontent.com/52250904/161066908-a556e9c9-cbb8-4638-9597-cfbff8bb573e.png" width="500">
+
+<img src="https://user-images.githubusercontent.com/52250904/161066911-194e5cca-5bc9-47fd-adfe-0d9d36c2c822.png" width="500">
+
+<img src="https://user-images.githubusercontent.com/52250904/161066913-e5645f94-97b3-41e7-9e82-8e86ee512985.png" width="500">
