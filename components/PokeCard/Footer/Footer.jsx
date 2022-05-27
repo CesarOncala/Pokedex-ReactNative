@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { View, ScrollView, Text, Image, TouchableOpacity } from 'react-native'
 import { List } from 'react-native-paper'
 import { Capitalize } from '../../../Functions.jsx';
 import { styles } from './styles.jsx'
-import { getPokemon } from '../../../services/PokemonDataService.jsx'
+import {PokemonContext} from '../../Contexts/PokemonContext.jsx'
 
 const Footer = (props) => {
 
@@ -18,13 +18,12 @@ const Footer = (props) => {
   const handlePressEvo = () => setEvo(!evo);
 
 
-
   const [game, setgame] = React.useState(false);
   const handlePressgame = () => setgame(!game);
 
-  const [pokemon, setPokemon] = React.useState(props.pokemon);
+  const {pokemon,updatePokemon} = useContext(PokemonContext)
 
-  React.useEffect(() => setPokemon(props.pokemon), [props])
+
 
 
 
@@ -53,10 +52,7 @@ const Footer = (props) => {
             {pokemon?.evolutions.evolutions[0].map((o, i) => {
               return <TouchableOpacity
                 key={i}
-                onPress={async () => {
-                  props.fatherState
-                    (await getPokemon(o))
-                }}
+                onPress={async () => await updatePokemon(o)}
                 style={[pokemon.name != o ? styles.evolutions : styles.base_evolution]}
               >
                 <Text style={styles.text}> {Capitalize(o)} </Text>

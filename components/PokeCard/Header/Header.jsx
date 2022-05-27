@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Card, Avatar, RadioButton } from 'react-native-paper'
 import { Text, Image, View } from 'react-native'
 import { styles } from './styles.jsx';
+import { PokemonContext } from '../../Contexts/PokemonContext.jsx'
 
 const Header = (props) => {
 
   const LeftContent = props => <Avatar.Icon onTouchStart={() => alert('César Henrique Alves Oncala \nEu vou vencer! 😄')} style={{ backgroundColor: 'black' }} {...props} />
   const [checked, setChecked] = React.useState(0);
 
+  const { pokemon } = useContext(PokemonContext)
 
   return (
     <>
-      <Card.Title title={props.pokemon?.name.toUpperCase()}
-        subtitle={props.pokemon?.general.genus}
+      <Card.Title title={pokemon?.name.toUpperCase()}
+        subtitle={pokemon?.general.genus}
         titleStyle={styles.value}
         subtitleStyle={styles.value}
         right={() => <Text style={{
@@ -21,11 +23,11 @@ const Header = (props) => {
           marginRight: 12,
           backgroundColor: 'grey'
           , color: 'white'
-        }}> #{props.pokemon?.general.order} </Text>}
+        }}> #{pokemon?.general.order} </Text>}
         left={() => LeftContent({ icon: 'pokeball', size: 40, color: 'white' })}
       />
 
-      <Image style={styles.sprite} source={{ uri: props.pokemon?.sprite[checked] }} />
+      <Image style={styles.sprite} source={{ uri: pokemon?.sprite[checked] }} />
 
       <View style={{
         display: 'flex',

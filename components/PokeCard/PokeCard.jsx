@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Card } from 'react-native-paper';
 import Header from './Header/Header.jsx'
@@ -6,22 +6,15 @@ import Body from './Body/Body.jsx'
 import Footer from './Footer/Footer.jsx'
 
 
-const PokeCard = (props) => {
 
-  const [pokemon, setpokemon] = useState(props.pokemon)
-
-  useEffect(async () => {
-    setpokemon(props.pokemon);
-  }, [props.pokemon])
-
-
+const PokeCard = () => {
   return (
     <View>
       <Card style={styles.layout}>
-        <Header pokemon={pokemon} />
+        <Header />
         <Card.Content>
-          <Body pokemon={pokemon} />
-          <Footer fatherState={setpokemon} pokemon={pokemon} />
+          <Body />
+          <Footer />
         </Card.Content>
       </Card>
     </View>

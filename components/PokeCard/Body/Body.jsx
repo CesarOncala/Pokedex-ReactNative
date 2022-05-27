@@ -1,26 +1,77 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Text, View } from 'react-native';
 import { Capitalize } from '../../../Functions.jsx';
 import { styles } from './style.jsx'
 import translate from 'translate-google-api'
+import { PokemonContext } from '../../Contexts/PokemonContext.jsx';
 
-const Body = (props) => {
+const Body = () => {
 
 
       const [description, setdescription] = React.useState('');
-
+      const { pokemon } = useContext(PokemonContext)
 
       async function getTranslate(text, lang) {
-            return await translate(text, { to: lang }).then(o => o)
+            try {
+                  return await translate(text, { to: lang }).then(o => o)
+            } catch (error) {
+                  return ''
+            }
       }
 
       React.useEffect(async () => {
-           setdescription(await getTranslate(props.pokemon?.general?.description,'en') +
-            '\n\n' + await getTranslate(props.pokemon?.general?.description,'pt'))
-      }, [props])
+            setdescription(await getTranslate(pokemon?.general?.description, 'en') +
+                  '\n\n' + await getTranslate(pokemon?.general?.description, 'pt'))
+      }, [pokemon])
 
 
       return (<View style={styles.info_group}>
+
+            <View style={styles.elementGroup}>
+                  {pokemon?.stats.map((o, i) =>
+                        <Text key={i} style={[styles.value, styles[`stats${i + 1}`]]}>
+                              <Text style={styles.text}>  {Capitalize(o.stat)} : </Text>
+                              {o.base_stat}
+                        </Text>)}
+            </View>
+
+
+            <View style={styles.elementGroup}>
+
+                  <Text style={styles.value}>
+                        <Text style={styles.text}>Types: </Text>
+                        {pokemon?.types}
+                  </Text>
+
+                  <Text style={styles.value}>
+                        <Text style={styles.text}>Habilities: </Text>
+                        {pokemon?.abilities}
+                  </Text>
+
+                  <Text style={styles.value}>
+                        <Text style={styles.text}>Lengendary: </Text>
+                        {pokemon?.general?.lengendary.toString()}
+                  </Text>
+                  <Text style={styles.value}>
+                        <Text style={styles.text}>Mythical: </Text>
+                        {pokemon?.general?.mythical.toString()}
+                  </Text>
+
+                  <Text style={styles.value}>
+                        <Text style={styles.text}>Shape: </Text>
+                        {pokemon?.general?.shape}
+                  </Text>
+
+
+
+                  <Text style={styles.value}> <Text style={styles.text}>Height: </Text>  {pokemon?.height}
+                  </Text>
+                  <Text style={styles.value}> <Text style={styles.text}>Weight: </Text>  {pokemon?.weight}
+                  </Text>
+
+            </View>
+
+
 
             <View style={styles.elementGroup}>
                   <Text style={[styles.value, { textAlign: 'justify' }]}>
@@ -29,50 +80,6 @@ const Body = (props) => {
             </View>
 
 
-            <View style={styles.elementGroup}>
-
-                  <Text style={styles.value}>
-                        <Text style={styles.text}>Types: </Text>
-                        {props.pokemon?.types}
-                  </Text>
-
-                  <Text style={styles.value}>
-                        <Text style={styles.text}>Habilities: </Text>
-                        {props.pokemon?.abilities}
-                  </Text>
-
-                  <Text style={styles.value}>
-                        <Text style={styles.text}>Lengendary: </Text>
-                        {props.pokemon?.general?.lengendary.toString()}
-                  </Text>
-                  <Text style={styles.value}>
-                        <Text style={styles.text}>Mythical: </Text>
-                        {props.pokemon?.general?.mythical.toString()}
-                  </Text>
-
-                  <Text style={styles.value}>
-                        <Text style={styles.text}>Shape: </Text>
-                        {props.pokemon?.general?.shape}
-                  </Text>
-
-
-
-                  <Text style={styles.value}> <Text style={styles.text}>Height: </Text>  {props.pokemon?.height}
-                  </Text>
-                  <Text style={styles.value}> <Text style={styles.text}>Weight: </Text>  {props.pokemon?.weight}
-                  </Text>
-
-            </View>
-
-
-
-            <View style={styles.elementGroup}>
-                  {props.pokemon?.stats.map((o, i) =>
-                        <Text key={i} style={styles.value}>
-                              <Text style={styles.text}>  {Capitalize(o.stat)} : </Text>
-                              {o.base_stat}
-                        </Text>)}
-            </View>
       </View>)
 }
 
