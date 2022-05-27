@@ -1,8 +1,8 @@
 
 const axios = require('axios');
+const pokeapi = 'https://pokeapi.co/api/v2/pokemon/'
 
-
-export async function FormatPokemonData(o) {
+async function FormatPokemonData(o) {
   return {
 
     name: o.name,
@@ -41,7 +41,7 @@ export async function FormatPokemonData(o) {
 
 export const getPokemon = async (query) => {
 
-  return await FormatPokemonData((await axios.get('https://pokeapi.co/api/v2/pokemon/' + query)).data)
+  return await FormatPokemonData((await axios.get(pokeapi + query)).data)
 
 }
 
@@ -62,7 +62,7 @@ async function GetEvolutionsResult(o) {
             let requests = []
 
             evolutions.forEach(o => {
-              requests.push(fetch('https://pokeapi.co/api/v2/pokemon/' + o))
+              requests.push(fetch(pokeapi + o))
             })
 
             Promise.all(requests)
@@ -175,7 +175,7 @@ export const getPokemonNames = async () => {
   do {
 
     if (result === null)
-      result = await getitems("https://pokeapi.co/api/v2/pokemon")
+      result = await getitems(pokeapi)
     else
       result = await getitems(result.data.next)
 
