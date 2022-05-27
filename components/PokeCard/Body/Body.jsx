@@ -69,6 +69,12 @@ const Body = () => {
                   <Text style={styles.value}> <Text style={styles.text}>Weight: </Text>  {pokemon?.weight}
                   </Text>
 
+                  {
+                        pokemon?.helditems !== '' && <Text style={styles.value}> <Text style={styles.text}>Held Items: </Text>  {pokemon?.helditems}
+                        </Text>
+
+                  }
+
             </View>
 
 

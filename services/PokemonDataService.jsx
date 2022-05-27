@@ -3,6 +3,7 @@ const axios = require('axios');
 const pokeapi = 'https://pokeapi.co/api/v2/pokemon/'
 
 async function FormatPokemonData(o) {
+  console.log(o)
   return {
 
     name: o.name,
@@ -29,6 +30,7 @@ async function FormatPokemonData(o) {
         }
 
       }),
+    helditems: o.held_items.map(o=> o.item.name).join(' , ') ,
     sprites: deepSearch(o.sprites).sort((x, o) => {
       if (x.includes('back'))
         return 1
