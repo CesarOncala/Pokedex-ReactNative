@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Pokedex } from './components/Pokedex/Pokedex.jsx'
+import RouteComponent from './components/Route/Route.jsx';
 
 
 export default function App() {
@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <>
-      <Pokedex />
+      <RouteComponent />
     </>
   )
 }
