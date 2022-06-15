@@ -73,15 +73,15 @@ export const styles = StyleSheet.create({
       types: {
             display: 'flex',
             textAlign:'center',
-            marginBottom: 0,
-            marginTop: 1,
+            marginBottom: 3,
+            marginTop: 3,
       },
 
       type: {
             paddingTop: 0.5,
             paddingBottom: 1,
-            paddingLeft: 3,
-            paddingRight: 3,
+            paddingLeft: 8,
+            paddingRight: 8,
             borderRadius: 12,
             marginLeft: 5,
             fontWeight: 'bold'
