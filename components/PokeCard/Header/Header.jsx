@@ -13,8 +13,6 @@ const Header = () => {
 
   function Favorite() {
     setCheckBox(!checkBox);
-
-      alert(pokemon.name  + ' ' + ' now is favorite pokémon!')
   }
 
 

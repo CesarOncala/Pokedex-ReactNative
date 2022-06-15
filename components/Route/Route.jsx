@@ -9,19 +9,23 @@ const FavoritesRoute = () => <Text>Favorites</Text>;
 
 const TrainerRoute = () => <Text>Trainer</Text>;
 
+const TeamsRoute = () => <Text>Teams</Text>
+
 const RouteComponent = () => {
   const [index, setIndex] = React.useState(0);
 
   const [routes] = React.useState([
     { key: 'pokedex', title: 'Pokédex', icon: 'pokeball' },
     { key: 'favorites', title: 'Favorites', icon: 'star' },
+    { key: 'teams', title: 'Teams', icon: 'account-group' },
     { key: 'trainer', title: 'Trainer', icon: 'account' },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
     pokedex: PokedexRoute,
     favorites: FavoritesRoute,
-    trainer: TrainerRoute,
+    teams: TeamsRoute,
+    trainer: TrainerRoute
   });
 
 
