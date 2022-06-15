@@ -12,12 +12,12 @@ const Body = () => {
       const { pokemon } = useContext(PokemonContext)
 
       async function getTranslate(text, lang) {
-            // try {
-            //       return await translate(text, { to: lang }).then(o => o)
-            // } catch (error) {
-            //       return ''
-            // }
-            return ''
+            try {
+                  return await translate(text, { to: lang }).then(o => o)
+            } catch (error) {
+                  return ''
+            }
+            // return ''
       }
 
       React.useEffect(async () => {
@@ -29,11 +29,13 @@ const Body = () => {
       return (<View style={styles.info_group}>
 
             <View style={styles.elementGroup}>
-                  {pokemon?.stats.map((o, i) =>
+                  {
+                        pokemon?.stats.map((o, i) =>
                         <Text key={i} style={[styles.value, styles[`stats${i + 1}`]]}>
                               <Text style={styles.text}>  {Capitalize(o.stat)} : </Text>
                               {o.base_stat}
-                        </Text>)}
+                        </Text>)
+                  }
             </View>
 
 
@@ -45,7 +47,7 @@ const Body = () => {
                         map((o, i) =><Text 
                         style={[styles.type,styles[o.trim()]]}
                         key={i}
-                        >{o}</Text>)}
+                        >{Capitalize(o.trim())}</Text>)}
                   </Text>
 
                   <Text style={styles.value}>
