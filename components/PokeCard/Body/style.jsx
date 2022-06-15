@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
             borderWidth: 3,
             flexGrow: 0.9,
             // alignItems:'center'
-            textAlign:'center'
+            textAlign: 'center'
       },
       info_group: {
             display: 'flex',
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
             backgroundColor: 'rgb(34,165,34)',
             marginBottom: 7,
             borderRadius: 10,
-    
+
       },
       stats2: {
             backgroundColor: 'rgb(173,40,62)',
@@ -67,5 +67,83 @@ export const styles = StyleSheet.create({
             backgroundColor: 'rgb(21,114,131)',
             marginBottom: 7,
             borderRadius: 10,
-      }
+      },
+
+
+      types: {
+            display: 'flex',
+            textAlign:'center',
+            marginBottom: 0,
+            marginTop: 1,
+      },
+
+      type: {
+            paddingTop: 0.5,
+            paddingBottom: 1,
+            paddingLeft: 3,
+            paddingRight: 3,
+            borderRadius: 12,
+            marginLeft: 5,
+            fontWeight: 'bold'
+      },
+
+      bug: {
+            backgroundColor: '#b5c33a'
+      },
+      grass: {
+            backgroundColor: '#8cd36a'
+      },
+      poison: {
+            backgroundColor: '#b76ea4'
+      },
+      fire: {
+            backgroundColor: '#ff603f'
+      },
+      dragon: {
+            backgroundColor: '#8c7cec'
+      },
+      flying: {
+            backgroundColor: '#9aa8fa'
+      },
+      water: {
+            backgroundColor: '#3399ff'
+      },
+
+      normal: {
+            backgroundColor: '#b7b6a4'
+      },
+      dark: {
+            backgroundColor: '#8c6e5c'
+      },
+      electric: {
+            backgroundColor: '#ffcc33'
+      },
+      psychic: {
+            backgroundColor: '#ff6ea4'
+      },
+      ground: {
+            backgroundColor: '#e2c469'
+      },
+      ice: {
+            backgroundColor: '#7dd3fa'
+      },
+      steel: {
+            backgroundColor: '#b7b6c1'
+      },
+      fairy: {
+            backgroundColor: '#f1a8ec'
+      },
+      rock: {
+            backgroundColor: '#c5b679'
+      },
+      fighting: {
+            backgroundColor: '#c56e5c'
+      },
+      ghost: {
+            backgroundColor: '#7d7cc1'
+      },
+
+
+
+
 })
