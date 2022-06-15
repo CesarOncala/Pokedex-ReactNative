@@ -3,7 +3,7 @@ const axios = require('axios');
 const pokeapi = 'https://pokeapi.co/api/v2/pokemon/'
 
 async function FormatPokemonData(o) {
-  console.log(o)
+  
   return {
 
     name: o.name,
