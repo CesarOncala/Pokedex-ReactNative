@@ -11,7 +11,7 @@ const PokemonContextProvider = (props) => {
         setPokemon((await getPokemon(q)))
     }
 
-    useEffect(() => updatePokemon(468), [])
+    useEffect(() => updatePokemon(25), [])
 
   
     return (

@@ -1,15 +1,23 @@
 import React, { useContext } from 'react'
-import { Card, Avatar, RadioButton } from 'react-native-paper'
+import { Card, Avatar, RadioButton, Checkbox } from 'react-native-paper'
 import { Text, Image, View } from 'react-native'
 import { styles } from './styles.jsx';
 import { PokemonContext } from '../../Contexts/PokemonContext.jsx'
 
-const Header = (props) => {
+const Header = () => {
 
   const LeftContent = props => <Avatar.Icon onTouchStart={() => alert('César Henrique Alves Oncala \nEu vou vencer! 😄')} style={{ backgroundColor: 'black' }} {...props} />
   const [checked, setChecked] = React.useState(0);
-
+  const [checkBox, setCheckBox] = React.useState(!true);
   const { pokemon } = useContext(PokemonContext)
+
+  function Favorite() {
+    setCheckBox(!checkBox);
+
+      alert(pokemon.name  + ' ' + ' now is favorite pokémon!')
+  }
+
+
 
   return (
     <>
@@ -17,15 +25,26 @@ const Header = (props) => {
         subtitle={pokemon?.general.genus}
         titleStyle={styles.value}
         subtitleStyle={styles.value}
-        right={() => <Text style={{
-          fontSize: 25,
-          borderRadius: 5,
-          marginRight: 12,
-          backgroundColor: 'grey'
-          , color: 'white'
-        }}> #{pokemon?.general.order} </Text>}
+        right={() =>
+          <Text style={{
+            fontSize: 25,
+            borderRadius: 5,
+            marginRight: 12,
+            backgroundColor: 'grey'
+            , color: 'white'
+          }}> #{pokemon?.general.order} </Text>
+        }
         left={() => LeftContent({ icon: 'pokeball', size: 40, color: 'white' })}
       />
+
+      <View style={{ display: 'flex', alignItems: 'flex-start', marginTop: 3, marginLeft: 18 }}>
+        <Text style={styles.value}>Mark as Favorite</Text>
+        <Checkbox
+          status={checkBox ? 'checked' : 'indeterminate'}
+          uncheckedColor={'grey'}
+          onPress={Favorite} />
+      </View>
+
 
       <Image style={styles.sprite} source={{ uri: pokemon?.sprite[checked] }} />
 
